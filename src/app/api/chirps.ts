@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import { respondWithJSON } from "./json.js";
 import { BadRequestError } from "./errors.js";
-import { createChirp } from "../../db/queries/chirps.js";
+import { createChirp, getChirps } from "../../db/queries/chirps.js";
 
 export async function handlerCreateChirp(req: Request, res: Response) {
   type parameters = {
@@ -42,4 +42,9 @@ function getCleanedBody(body: string, badWords: string[]) {
 
   const cleaned = words.join(" ");
   return cleaned;
+}
+
+export async function handlerGetAllChirps(req: Request, res: Response){
+  const chirps = await getChirps();
+  respondWithJSON(res, 200, chirps);
 }
