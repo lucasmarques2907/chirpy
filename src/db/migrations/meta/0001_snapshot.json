@@ -1,6 +1,6 @@
 {
-  "id": "4214f680-6c95-4d81-83e4-eb2b835ad2fb",
-  "prevId": "00000000-0000-0000-0000-000000000000",
+  "id": "11e69d8a-9e43-42ea-958a-54fa4a051fc8",
+  "prevId": "4214f680-6c95-4d81-83e4-eb2b835ad2fb",
   "version": "7",
   "dialect": "postgresql",
   "tables": {
@@ -97,7 +97,7 @@
         },
         "hashed_password": {
           "name": "hashed_password",
-          "type": "varchar",
+          "type": "varchar(256)",
           "primaryKey": false,
           "notNull": true,
           "default": "'unset'"
