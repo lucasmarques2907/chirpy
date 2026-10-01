@@ -1,3 +1,4 @@
+import crypto from "node:crypto";
 import argon2 from "argon2";
 import jwt from "jsonwebtoken";
 import type { JwtPayload } from "jsonwebtoken";
@@ -78,4 +79,9 @@ export function extractBearerToken(header: string) {
     throw new BadRequestError("Malformed authorization header");
   }
   return splitAuth[1];
+}
+
+export function makeRefreshToken() {
+  const token = crypto.randomBytes(32).toString("hex");
+  return token;
 }

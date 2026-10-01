@@ -1,8 +1,8 @@
 import { asc, eq } from "drizzle-orm";
 import { db } from "../index.js";
-import { newChirp, chirps } from "../schema.js";
+import { NewChirp, chirps } from "../schema.js";
 
-export async function createChirp(chirp: newChirp) {
+export async function createChirp(chirp: NewChirp) {
   const [rows] = await db.insert(chirps).values(chirp).returning();
   return rows;
 }
