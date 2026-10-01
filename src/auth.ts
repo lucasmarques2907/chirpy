@@ -85,3 +85,20 @@ export function makeRefreshToken() {
   const token = crypto.randomBytes(32).toString("hex");
   return token;
 }
+
+export async function getAPIKey(req: Request) {
+  const authHeader = req.get("Authorization");
+  if (!authHeader) {
+    throw new UserNotAuthenticatedError("Malformed authorization header");
+  }
+
+  return extractAPIKey(authHeader);
+}
+
+export function extractAPIKey(header: string) {
+  const splitAuth = header.split(" ");
+  if (splitAuth.length < 2 || splitAuth[0] !== "ApiKey") {
+    throw new BadRequestError("Malformed authorization token");
+  }
+  return splitAuth[1];
+}

@@ -1,6 +1,7 @@
 import { describe, it, expect, beforeAll } from "vitest";
 import {
   checkPasswordHash,
+  extractAPIKey,
   extractBearerToken,
   hashPassword,
   makeJWT,
@@ -87,5 +88,13 @@ describe("extractBearerToken", () => {
   it("should throw a BadRequestError if the header is an empty string", () => {
     const header = "";
     expect(() => extractBearerToken(header)).toThrow(BadRequestError);
+  });
+});
+
+describe("extract API Key", () => {
+  it("should extract the key from a valid header", () => {
+    const apiKey = "my-api-key";
+    const header = `ApiKey ${apiKey}`;
+    expect(extractAPIKey(header)).toBe(apiKey);
   });
 });

@@ -21,6 +21,7 @@ CREATE TABLE "users" (
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	"email" varchar(256) NOT NULL,
 	"hashed_password" varchar(256) DEFAULT 'unset' NOT NULL,
+	"is_chirpy_red" boolean DEFAULT false NOT NULL,
 	CONSTRAINT "users_email_unique" UNIQUE("email")
 );
 --> statement-breakpoint
