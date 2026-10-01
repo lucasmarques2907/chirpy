@@ -8,6 +8,20 @@
       "when": 1790870689238,
       "tag": "0000_dizzy_ulik",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790877109347,
+      "tag": "0001_steep_maverick",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790878821063,
+      "tag": "0002_dusty_crystal",
+      "breakpoints": true
     }
   ]
 }
