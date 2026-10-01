@@ -7,7 +7,7 @@ CREATE TABLE "chirps" (
 );
 --> statement-breakpoint
 CREATE TABLE "refresh_tokens" (
-	"token" varchar(256) PRIMARY KEY NOT NULL,
+	"token" varchar(256),
 	"created_at" timestamp DEFAULT now() NOT NULL,
 	"updated_at" timestamp DEFAULT now() NOT NULL,
 	"user_id" uuid NOT NULL,
