@@ -9,6 +9,7 @@ import { handlerMetrics } from "./app/api/metrics.js";
 import { handlerReset } from "./app/api/reset.js";
 import {
   handlerCreateChirp,
+  handlerDeleteChirp,
   handlerGetAllChirps,
   handlerGetChirp,
 } from "./app/api/chirps.js";
@@ -69,6 +70,10 @@ app.post("/api/revoke", (req, res, next) => {
 
 app.put("/api/users", (req, res, next) => {
   Promise.resolve(handlerUpdateUser(req, res)).catch(next);
+});
+
+app.delete("/api/chirps/:chirpId", (req, res, next) => {
+  Promise.resolve(handlerDeleteChirp(req, res)).catch(next);
 });
 
 app.use(errorMiddleware);
